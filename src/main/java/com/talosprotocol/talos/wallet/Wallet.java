@@ -1,15 +1,14 @@
 package com.talosprotocol.talos.wallet;
 
-import com.talosprotocol.talos.crypto.Crypto;
-import com.talosprotocol.talos.errors.TalosError;
-import com.talosprotocol.talos.errors.TalosErrorCode;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+
 import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.Arrays;
+import com.talosprotocol.talos.crypto.Crypto;
+import com.talosprotocol.talos.errors.TalosError;
+import com.talosprotocol.talos.errors.TalosErrorCode;
 
 /**
  * Talos identity wallet.

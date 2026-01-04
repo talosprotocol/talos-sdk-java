@@ -27,3 +27,9 @@ target/
 build/
 .gradle
 conformance.xml
+
+target/
+
+.mvn/
+
+build/

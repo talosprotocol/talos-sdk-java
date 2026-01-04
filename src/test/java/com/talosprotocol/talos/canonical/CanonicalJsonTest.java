@@ -1,13 +1,12 @@
 package com.talosprotocol.talos.canonical;
 
-import org.junit.jupiter.api.Test;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
-import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class CanonicalJsonTest {
 

@@ -8,10 +8,10 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class CanonicalJsonTest {
+class CanonicalJsonTest {
 
     @Test
-    public void testGolden() throws Exception {
+    void testGolden() throws Exception {
         // Simple Map
         Map<String, Object> m1 = new HashMap<>();
         m1.put("b", 2);
@@ -31,7 +31,7 @@ public class CanonicalJsonTest {
     }
 
     @Test
-    public void testPermutation() throws Exception {
+    void testPermutation() throws Exception {
         // Map 1: Insert A then B
         Map<String, Object> m1 = new LinkedHashMap<>();
         m1.put("a", 1);
@@ -50,15 +50,15 @@ public class CanonicalJsonTest {
     }
 
     @Test
-    public void testNestedPermutation() throws Exception {
-        // Nest 1: x:{z,y}
+    void testNestedPermutation() throws Exception {
+        // Nest 1: nested {z,y} ordering
         Map<String, Object> n1 = new HashMap<>();
         Map<String, Object> sub1 = new LinkedHashMap<>();
         sub1.put("z", 3);
         sub1.put("y", 2);
         n1.put("x", sub1);
 
-        // Nest 2: x:{y,z}
+        // Nest 2: Same reversed ordering
         Map<String, Object> n2 = new HashMap<>();
         Map<String, Object> sub2 = new LinkedHashMap<>();
         sub2.put("y", 2);

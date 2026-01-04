@@ -20,6 +20,14 @@ test:
 	# Unit tests
 	./mvnw test
 
+coverage:
+	# Run coverage report
+	./mvnw clean test jacoco:report
+
+coverage-check:
+	# Enforce 80% threshold
+	./mvnw test jacoco:check
+
 conformance:
 	# Conformance via JUnit using system properties
 	@if [ -z "$(RELEASE_SET)" ]; then \

@@ -32,4 +32,7 @@ target/
 
 .mvn/
 
-build/
+build/junit.xml
+.DS_Store
+.idea/
+.vscode/

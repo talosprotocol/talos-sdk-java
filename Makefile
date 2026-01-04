@@ -1,34 +1,35 @@
-# talos-sdk-java Makefile
+# Universal Makefile Interface
+all: install lint test build conformance
 
-.PHONY: build test conformance clean doctor start stop
+install:
+	./mvnw install -DskipTests
 
-# Default target
-all: build test
+typecheck:
+	# Java is compiled, so compile acts as typecheck
+	./mvnw compile
 
-build:
-	@echo "Building Java SDK..."
-	./mvnw clean package
+lint:
+	# Check style (Spotless check)
+	./mvnw spotless:check
+
+format:
+	# Auto-fix style
+	./mvnw spotless:apply
 
 test:
-	@echo "Running tests..."
+	# Unit tests
 	./mvnw test
 
-conformance: build
-	@echo "Running conformance tests..."
-	java -jar target/talos-sdk-java-0.1.0.jar --vectors ../talos-contracts/test_vectors/sdk/release_sets/v1.0.0.json
+conformance:
+	# Conformance via JUnit using system properties
+	@if [ -z "$(RELEASE_SET)" ]; then \
+		echo "Skipping conformance (No RELEASE_SET provided)"; \
+	else \
+		./mvnw test -Dconformance.vectors=$(RELEASE_SET); \
+	fi
 
-doctor:
-	@echo "Checking environment..."
-	@java -version || echo "Java missing"
-	@./mvnw -version || echo "Maven missing"
+build:
+	./mvnw package -DskipTests
 
 clean:
-	@echo "Cleaning..."
 	./mvnw clean
-
-# Scripts wrapper
-start:
-	@./scripts/start.sh
-
-stop:
-	@./scripts/stop.sh

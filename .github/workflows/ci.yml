@@ -1,0 +1,52 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                java-version: ["17", "21"]
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up JDK ${{ matrix.java-version }}
+              uses: actions/setup-java@v4
+              with:
+                  java-version: ${{ matrix.java-version }}
+                  distribution: "temurin"
+
+            - name: Display Java version
+              run: java -version
+
+            - name: Setup Gradle
+              uses: gradle/actions/setup-gradle@v3
+              continue-on-error: true # No gradle yet
+
+            - name: Build with Gradle
+              run: |
+                  if [ -f "gradlew" ]; then
+                    ./gradlew build
+                  elif [ -f "pom.xml" ]; then
+                    mvn -B package
+                  else
+                    echo "No build system found yet"
+                  fi
+              continue-on-error: true # No code yet
+
+            - name: Run tests
+              run: |
+                  if [ -f "gradlew" ]; then
+                    ./gradlew test
+                  elif [ -f "pom.xml" ]; then
+                    mvn -B test
+                  else
+                    echo "No build system found yet"
+                  fi
+              continue-on-error: true # No tests yet

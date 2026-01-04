@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class CanonicalJsonTest {
 
     @Test
-    void testGolden() throws Exception {
+    public void testGolden() throws Exception {
         // Simple Map
         Map<String, Object> m1 = new HashMap<>();
         m1.put("b", 2);
@@ -31,7 +31,7 @@ class CanonicalJsonTest {
     }
 
     @Test
-    void testPermutation() throws Exception {
+    public void testPermutation() throws Exception {
         // Map 1: Insert A then B
         Map<String, Object> m1 = new LinkedHashMap<>();
         m1.put("a", 1);
@@ -50,7 +50,7 @@ class CanonicalJsonTest {
     }
 
     @Test
-    void testNestedPermutation() throws Exception {
+    public void testNestedPermutation() throws Exception {
         // Nest 1: nested {z,y} ordering
         Map<String, Object> n1 = new HashMap<>();
         Map<String, Object> sub1 = new LinkedHashMap<>();

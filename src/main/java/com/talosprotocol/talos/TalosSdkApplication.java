@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TalosSdkApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(TalosSdkApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(TalosSdkApplication.class, args);
+	}
 
 }

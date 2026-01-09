@@ -4,7 +4,7 @@ set -e
 echo "🔍 Running pre-commit checks for talos-sdk-java..."
 
 echo "1) Spotless Check (Linting)..."
-./mvnw spotless:check || echo "⚠️  Lint check failed (non-fatal for now)"
+./mvnw spotless:apply spotless:check
 
 echo "2) Running tests..."
 ./mvnw test

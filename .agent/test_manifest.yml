@@ -1,0 +1,13 @@
+repo_id: "sdks-java"
+repo_root: "."
+commands:
+  test_entrypoint: "scripts/test.sh"
+coverage:
+  enabled: false  # Disabled until coordinator supports JaCoCo XML format
+  format: "jacoco"  # JaCoCo XML format, not Cobertura
+  report_path: "artifacts/coverage/coverage.xml"
+  thresholds:
+    line: 0.60  # Baseline: actual coverage ~65%
+    branch: 0.30  # Baseline: actual coverage ~41%
+ci:
+  default: ["--smoke", "--unit", "--coverage"]

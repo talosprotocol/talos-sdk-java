@@ -1,0 +1,12 @@
+*.md
+!README.md
+.git
+.github
+.gitignore
+.env*
+target/
+artifacts/
+.mvn/wrapper/maven-wrapper.jar
+.vscode
+.idea
+*.iml

@@ -14,7 +14,7 @@ COPY sdks/java/mvnw ./sdks/java/mvnw
 
 # Download dependencies
 WORKDIR /workspace/sdks/java
-RUN chmod +x mvnw && ./mvnw dependency:go-offline -B
+RUN mvn dependency:go-offline -B
 
 # Copy source
 WORKDIR /workspace
@@ -23,7 +23,7 @@ COPY scripts ./scripts
 
 # Build
 WORKDIR /workspace/sdks/java
-RUN ./mvnw package -DskipTests -B
+RUN mvn package -DskipTests -B
 
 # Test runner stage
 FROM maven:3.9-eclipse-temurin-17
@@ -46,7 +46,7 @@ COPY --from=builder /workspace/sdks/java ./
 COPY --from=builder /workspace/scripts /workspace/scripts
 
 # Create non-root user
-RUN useradd -m -u 1000 talos && chown -R talos:talos /workspace
+RUN useradd -m -u 1001 talos && chown -R talos:talos /workspace
 USER talos
 
 # Default: run CI tests

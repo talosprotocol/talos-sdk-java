@@ -29,6 +29,7 @@ graph TD
 ## Evaluation
 **Status**: Stable.
 - **Conformance**: Verified against `v1.1.0` vectors.
+- **A2A v1**: `com.talosprotocol.talos.a2a.A2AJsonRpcClient` now provides Agent Card discovery, canonical `/rpc` helpers, Talos extension introspection, collect-style streaming helpers, callback-style per-event handling, and `Iterable`-based stream returns for `SendStreamingMessage` and `SubscribeToTask`.
 
 ## Usage
 ### Quickstart

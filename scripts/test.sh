@@ -22,7 +22,7 @@ run_smoke() {
 
 run_integration() {
     echo "=== Running Integration Tests ==="
-    ./mvnw -q test -Dtest=*IntegrationTest
+    ./mvnw -q test -Dtest=*Test
 }
 
 run_coverage() {

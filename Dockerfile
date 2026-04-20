@@ -19,6 +19,7 @@ RUN mvn dependency:go-offline -B
 # Copy source
 WORKDIR /workspace
 COPY sdks/java ./sdks/java
+COPY contracts ./contracts
 COPY scripts ./scripts
 
 # Build
@@ -43,6 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Copy from builder
 COPY --from=builder /workspace/sdks/java ./
+COPY --from=builder /workspace/contracts /workspace/contracts
 COPY --from=builder /workspace/scripts /workspace/scripts
 
 # Create non-root user

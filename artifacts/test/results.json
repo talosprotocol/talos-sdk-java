@@ -1,6 +1,6 @@
 {
   "repo_id": "sdks-java",
-  "command": "--unit",
+  "command": "--full",
   "status": "pass",
-  "timestamp": "2026-04-09T23:52:09Z"
+  "timestamp": "2026-04-22T00:54:22Z"
 }

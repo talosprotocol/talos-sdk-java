@@ -17,7 +17,7 @@ run_unit() {
 
 run_smoke() {
     echo "=== Running Smoke Tests ==="
-    ./mvnw -q test -Dtest=*SmokeTest || run_unit
+    ./mvnw -q test -Dtest='*SmokeTest' -Dsurefire.failIfNoSpecifiedTests=false
 }
 
 run_integration() {

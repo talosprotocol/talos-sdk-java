@@ -36,3 +36,7 @@ build/junit.xml
 .DS_Store
 .idea/
 .vscode/
+artifacts/test/results.json
+artifacts/coverage/coverage.xml
+*.db-shm
+*.db-wal

@@ -3,7 +3,7 @@
 # =============================================================================
 
 # Builder stage
-FROM maven:3.9-eclipse-temurin-17 AS builder
+FROM maven:3-eclipse-temurin-26 AS builder
 
 WORKDIR /workspace
 
@@ -27,7 +27,7 @@ WORKDIR /workspace/sdks/java
 RUN mvn package -DskipTests -B
 
 # Test runner stage
-FROM maven:3.9-eclipse-temurin-17
+FROM maven:3-eclipse-temurin-26
 
 # OCI labels
 LABEL org.opencontainers.image.source="https://github.com/talosprotocol/talos"
